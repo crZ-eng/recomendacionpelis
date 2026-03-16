@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>CineMax Recomendador</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>CineMax</h1>
+
+<div class="content">
+
+<h2>Califica los géneros del 1 al 5</h2>
+
+<label>Nombre:</label>
+<input type="text" id="nombre"><br><br>
+
+<label>Acción</label>
+<input type="number" id="accion"><br><br>
+
+<label>Comedia</label>
+<input type="number" id="comedia"><br><br>
+
+<label>Drama</label>
+<input type="number" id="drama"><br><br>
+
+<label>Ciencia ficción</label>
+<input type="number" id="ciencia"><br><br>
+
+<label>Terror</label>
+<input type="number" id="terror"><br><br>
+
+<button onclick="recomendar()">Obtener recomendación</button>
+
+<h2 id="resultado"></h2>
+
+</div>
+
+<script>
+
+function recomendar(){
+
+let usuario = document.getElementById("nombre").value
+
+let accion = Number(document.getElementById("accion").value)
+let comedia = Number(document.getElementById("comedia").value)
+let drama = Number(document.getElementById("drama").value)
+let ciencia = Number(document.getElementById("ciencia").value)
+let terror = Number(document.getElementById("terror").value)
+
+let generoFavorito = "Acción"
+let mayor = accion
+
+if(comedia > mayor){
+mayor = comedia
+generoFavorito = "Comedia"
+}
+
+if(drama > mayor){
+mayor = drama
+generoFavorito = "Drama"
+}
+
+if(ciencia > mayor){
+mayor = ciencia
+generoFavorito = "Ciencia ficción"
+}
+
+if(terror > mayor){
+mayor = terror
+generoFavorito = "Terror"
+}
+
+let pelicula = ""
+
+if(generoFavorito == "Acción"){
+pelicula = "Misión Imposible"
+}
+
+if(generoFavorito == "Comedia"){
+pelicula = "Son como niños"
+}
+
+if(generoFavorito == "Drama"){
+pelicula = "En busca de la felicidad"
+}
+if(generoFavorito == "Ciencia ficción"){
+pelicula = "Interestelar"
+}
+
+
+if(generoFavorito == "Terror"){
+pelicula = "El conjuro"
+}
+document.getElementById("resultado").innerHTML =
+"Hola " + usuario + "<br>" +
+"Tu género favorito es: " + generoFavorito + "<br>" +
+"Te recomendamos ver: " + pelicula
+
+}
+
+</script>
+
+</body>
+</html>
